@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.3.4/dist/vue.js"></script>
+    <title>vue</title>
+</head>
+<body>
+<div id="app">
+    字串:
+    message = {{message}}<br>
+    數字:
+    score + 100 = {{score + 100}}<br><br>
+    判斷句v-if:
+    <div v-if="loading">訊息載入錯誤</div>
+    <h3>你考幾分呢？</h3>
+    <input type="text" v-model="score">
+    <div v-if="score>=60">很棒，你及格了</div>
+    <div v-else="score<60">不及格</div><br>
+    顯示v-show:
+    <div v-show="show">Hi!</div>
+</div>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message:"hello world!!",
+            score:0,
+            loading:true,
+            show:true
+        }
+    });
+
+</script>
+</body>
+</html>
