@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.3.4/dist/vue.js"></script>
+    <title>vue list</title>
+    <script>
+        // $(function () {
+        //     document.querySelector("#title").onclick = function () {
+        //         alert(document.getElementById("title").innerHTML);
+        //     }
+        // });
+
+        // function myFa(father){
+        //     alert("我的爸爸是" + father)
+        // }
+
+        $(function (){
+            var app = new Vue({
+                el:"#app",
+                data:{
+                    colors:['blue','red','black'],
+                    homes:[
+                        {father:'tom'},
+                        {father:'bob'},
+                        {father:'jonh'}
+                    ]
+                },
+                methods:{
+                    myFa:function(father){
+                        alert("我的爸爸是" + father)
+                    }
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="app">
+        <h2>顏色列表</h2>
+        <ul>
+            <li v-for="color in colors">
+                {{color}}
+            </li>
+        </ul>
+
+        <h2>各家庭的父親</h2>
+        <ul>
+            <li v-for="home in homes" v-on:click="myFa(home.father)">
+                {{home.father}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
