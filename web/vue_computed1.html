@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.3.4/dist/vue.js"></script>
+    <title>Title</title>
+    <script>
+        $(function (){
+           var app = new Vue({
+               el:"#app",
+               data:{
+                   NT:0
+               },
+               computed:{//無法帶任何參數，原始資料必須變更，也就是說資料沒變動的話就不會觸發 Computed 更新，必需要有回傳值
+                   japan:function (){
+                       return this.NT * 0.2713
+                   }
+               }
+           });
+        });
+    </script>
+</head>
+<body>
+<div id="app">
+    輸入金額: <input type="text" v-model="NT">
+    <ul>
+<!--        <li>日幣:{{NT * 0.2713}}</li>-->
+<!--        <li>美金:{{NT * 30.687}}</li>-->
+        <li>日幣:{{japan}}</li>
+    </ul>
+</div>
+</body>
+</html>

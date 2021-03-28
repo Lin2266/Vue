@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.3.4/dist/vue.js"></script>
+    <title>Title</title>
+    <script>
+        $(function (){
+           var app = new Vue({
+               el:"#app",
+               data:{
+                   a:0,
+                   b:0,
+                   BMI:20
+               },
+               computed:{
+                   now:function (){
+                       //this.a 跟 this.b 值有變動，日期就會更新
+                       let total = this.a + this.b;
+                       var d = new Date();
+                       return d.getSeconds();
+                   }
+               }
+           });
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        現在時間 :{{now}}
+        <br>
+        路人A體脂肪:<input type="text" v-model="a">
+        <br>
+        路人B體脂肪:<input type="text" v-model="b">
+        <br>
+    </div>
+</body>
+</html>
