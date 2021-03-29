@@ -13,7 +13,10 @@
                data:{
                    NT:0
                },
-               computed:{//無法帶任何參數，原始資料必須變更，也就是說資料沒變動的話就不會觸發 Computed 更新，必需要有回傳值
+               //具有資料暫存，即時動態更新，效能比methods好，無法帶任何參數，
+               // 原始資料必須變更，也就是說資料沒變動的話就不會觸發 Computed
+               // 更新，必需要有回傳值。
+               computed:{
                    japan:function (){
                        return this.NT * 0.2713
                    }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.3.4/dist/vue.js"></script>
+    <title>Title</title>
+    <script>
+        $(function (){
+            var app = new Vue({
+                el:"#app",
+                data:{
+                    a:0,
+                    b:0,
+                    BMI:20
+                },
+                computed:{
+                    whoMeavey:function (){
+                        if(this.a > this.b){
+                            return "a比較重"
+                        }else if(this.a < this.b){
+                            return "b比較重"
+                        }else{
+                            return "一樣重"
+                        }
+                    },
+                    judgeA:function (){
+                        return this.a - this.BMI
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        路人A體脂肪:<input type="text" v-model="a">
+        <br>
+        路人B體脂肪:<input type="text" v-model="b">
+        <ul>
+            <li>
+                誰的體脂肪比較重？:{{whoMeavey}}
+            </li>
+            <li>
+                A跟一般國人的體脂肪差異多少:{{judgeA}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
